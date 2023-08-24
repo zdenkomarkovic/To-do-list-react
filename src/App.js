@@ -8,11 +8,12 @@ function App() {
   const [task, setTask] = useState('');
   const [allTasks, setAllTasks] = useState(initialState);
   const [isEdit, setIsEdit] = useState(null);
+  const [isDark, setIsDark] = useState('false')
   useEffect(() => {
     localStorage.setItem('todo_list', JSON.stringify(allTasks));
   }, [allTasks]);
   return (
-    <div className='w-[80%] mx-auto mt-10 text-2xl'>
+    <div className='lg:w-[1440px] sm:w-[375px] mx-auto lg:mt-10 lg:text-2xl sm:text-sm'>
       <TaskForm
         task={task}
         setTask={setTask}
@@ -20,12 +21,16 @@ function App() {
         setAllTasks={setAllTasks}
         isEdit={isEdit}
         setIsEdit={setIsEdit}
+        isDark={isDark}
+        setIsDark={setIsDark}
       />
       <TaskList
         allTasks={allTasks}
         setAllTasks={setAllTasks}
         setTask={setTask}
         setIsEdit={setIsEdit}
+        isDark={isDark}
+        setIsDark={setIsDark}
       />
     </div>
   );
